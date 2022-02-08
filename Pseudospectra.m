@@ -1,5 +1,6 @@
 function Pseudo = Pseudospectra(A,Grid)
 %
+%Inputs: 
 % A - the (n x n) matrix A
 % Grid - A struct containing Grid.Z1 and Grid.Z2 (the X and Y parts of the 
 %        Pseudo search region, X+iY will be searched over to create the
