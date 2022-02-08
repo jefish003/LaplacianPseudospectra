@@ -9,6 +9,9 @@ function [P] = LapPseudo(L,Grid)
 %Written by: Jeremie Fish
 %Last updated February 8th 2022
 %
+%Please cite "Non-normality, Optimality and Synchronization" By Jeremie Fish and Erik Bollt
+%
+
 [V T] = schur(L);
 DT = diag(T);
 F = find(DT~=min(DT));
