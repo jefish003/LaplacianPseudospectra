@@ -9,6 +9,7 @@ function [A] = ToyNetwork(n,gamma)
 %Written by: Jeremie Fish
 %Last updated February 8th 2022
 %
+%Please cite "Non-normality, optimality and synchronization" By Jeremie Fish and Erik Bollt.
 
 A = zeros(n);
 A(2:end,1) = gamma;
