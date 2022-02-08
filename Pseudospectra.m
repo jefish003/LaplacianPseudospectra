@@ -5,6 +5,9 @@ function Pseudo = Pseudospectra(A,Grid)
 %        Pseudo search region, X+iY will be searched over to create the
 %        level sets). THIS PARAMETER IS OPTIONAL
 %
+%Outputs: 
+%        Pseudo - Pseudo.X is the real portion of the "perturbation", Pseudo.Y is the imaginary portion of the "perturbation"
+%                 Pseudo.MinSig is the minimum singular value of the perturbed matrix zI-A.
 %
 % Written by: Jeremie Fish
 % Last updated February 8th 2022
