@@ -10,10 +10,12 @@ contour(P.X,P.Y,P.MinSig); %A plot of the pseudospectra
 ```
 This should give a plot that looks something like it did in the paper.
 Now for calculation of LPR
-```LPR = Compute_LPR(L)
+```
+LPR = Compute_LPR(L)
 ```
 This should come up with
 
-```LPR = 0.9367
+```
+LPR = 0.9367
 ```
 And that is it!
