@@ -8,4 +8,4 @@ L = diag(sum(A,2))-A; %The graph Laplacian
 P = LapPseudo(L); %The Laplacian pseudospectra
 contour(P.X,P.Y,P.MinSig); %A plot of the pseudospectra
 ```
-
+This should give a plot that looks something like it did in the paper.
