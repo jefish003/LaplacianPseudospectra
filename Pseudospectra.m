@@ -9,6 +9,8 @@ function Pseudo = Pseudospectra(A,Grid)
 % Written by: Jeremie Fish
 % Last updated February 8th 2022
 %
+% Please cite "Non-normality, Optimality, and synchronization" By Jeremie Fish and Erik Bollt.
+%
 
 if ~exist('Grid','var')
     E = eig(A);
