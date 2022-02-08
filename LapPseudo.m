@@ -5,6 +5,9 @@ function [P] = LapPseudo(L,Grid)
 %                           [Z1,Z2] = ndgrid(-M:M/100:M,-M:M/100:M) and Grid.Z1 = Z1, Grid.Z2 = Z2. Obviously the ndgrid can be changed
 %                           to match whatever search region is desired.
 %
+%Outputs: P - P.X is the real portion of the "pertubation", P.Y is the imaginary part of the "perturbation" and P.MinSig is the minimum
+%             singular value of the perturbed matrix zI-T_2, where T_2 is the submatrix of T as discussed in the paper 
+%             "Non-normality, Optimality and Synchronization"
 %
 %Written by: Jeremie Fish
 %Last updated February 8th 2022
