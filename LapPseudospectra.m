@@ -22,8 +22,14 @@ function Pseudo = LapPseudospectra(A,Grid)
 
 if ~exist('Grid','var')
     E = eig(A);
-    M = 1.25*max(abs(E));
-    [Z1,Z2] = ndgrid(-M:M/100:M,-M:M/100:M);
+    E = sort(E);
+    S1 = 0:0.02:ceil(E(end));
+    U1 = E(2)+S1;
+    U2 = E(2)-2*S1;
+    U = union(U1,U2);
+    [Z1,Z2] = ndgrid(U,U);
+    %M = 2*ceil(real(E(end)));
+    %[Z1,Z2] = ndgrid(-M:M/200:M,-M:M/200:M);
 end
 if exist('Grid','var')
     Z1 = Grid.Z1;
@@ -43,21 +49,21 @@ F = find(DT==min(DT));
 I = eye(size(A,1));
 %Set one of the diagonal elements of I to 0
 I(F(1),F(1)) = 0;
-%I(1,1) = 0;
+
 MinSig = zeros(length(X),1);
 MEig = zeros(length(X),1);
 %Find a matrix which is simultaneously diagonalizable (or simultaneously
 %diagonalizable to the same Jordan form...)
 
-%[Vnew J] = jordan(A);
+
 %Change basis to ensure that the matrices change the eigenvalues in the
 %proper way.
-BI = Vnew*I*inv(Vnew);
+
 
 for j = 1:length(X)
     z = X(j)+i*Y(j);
     
-    [U Sig V] = svd(z*BI-A);
+    [U Sig V] = svd(z*I-T);
     %We are only interested in what happens to the smallest non-zero
     %singular value...
     MinSig(j) = Sig(end-1,end-1);
