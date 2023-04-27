@@ -10,7 +10,7 @@ function [P] = LapPseudo(L,Grid)
 %             "Non-normality, Optimality and Synchronization"
 %
 %Written by: Jeremie Fish
-%Last updated February 8th 2022
+%Last updated March 23rd 2023
 %
 %Please cite "Non-normality, Optimality and Synchronization" By Jeremie Fish and Erik Bollt
 %
