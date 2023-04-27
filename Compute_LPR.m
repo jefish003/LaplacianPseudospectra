@@ -9,7 +9,7 @@ function LPR = Compute_LPR(L,Grid)
 %
 %
 %Written by Jeremie Fish
-%Last updated: February 8th 2022
+%Last updated: March 31st 2023
 %
 %Please cite "Non-normality, Optimality and Synchronization" By Jeremie
 %             Fish and Erik Bollt
@@ -17,6 +17,7 @@ function LPR = Compute_LPR(L,Grid)
 E = eig(L);
 E = sort(E);
 Lam2 = real(E(2));
+Lam_n = real(E(end));
 if ~exist('Grid','var')
 P = LapPseudo(L);
 end
@@ -25,4 +26,16 @@ if exist('Grid','var')
 end
    
 [C h] = contour(P.X,P.Y,P.MinSig,[Lam2 Lam2]);
-LPR = -min(C(1,:));
+LPR1 = -min(C(1,:));%/Lam_n;
+close all
+%Eigs should be the same
+if ~exist('Grid','var')
+P = LapPseudo(L');
+end
+if exist('Grid','var')
+    P = LapPseudo(L',Grid);
+end
+[C h] = contour(P.X,P.Y,P.MinSig,[Lam2 Lam2]);
+LPR2 = -min(C(1,:));%/Lam_n;
+close all
+LPR = max([LPR1 LPR2]);

@@ -15,7 +15,8 @@ function [P] = LapPseudo(L,Grid)
 %Please cite "Non-normality, Optimality and Synchronization" By Jeremie Fish and Erik Bollt
 %
 
-[V T] = schur(L);
+[V T] = schur(L,'complex');
+%T = real(T);
 DT = diag(T);
 F = find(DT~=min(DT));
 L0 = T(F,F);
