@@ -15,6 +15,7 @@ function [P] = LapPseudo(L,Grid)
 %Please cite "Non-normality, Optimality and Synchronization" By Jeremie Fish and Erik Bollt
 %
 
+%Note to force matlab to do the upper triangular (rather than block upper triangular) schur decomp. need to specify 'complex'
 [V T] = schur(L,'complex');
 %T = real(T);
 DT = diag(T);
