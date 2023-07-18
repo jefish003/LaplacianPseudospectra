@@ -26,8 +26,13 @@ if exist('Grid','var')
 end
    
 [C h] = contour(P.X,P.Y,P.MinSig,[Lam2 Lam2]);
-LPR1 = -min(C(1,:));%/Lam_n;
-close all
+xC = C2xyz(C);
+xVals = [];
+for i = 1:length(xC)
+    xVals = [xVals min(xC{i})];
+end
+LPR1 = -min(xVals);
+%LPR1 = -min(C(1,:));
 %Eigs should be the same
 if ~exist('Grid','var')
 P = LapPseudo(L');
@@ -36,6 +41,11 @@ if exist('Grid','var')
     P = LapPseudo(L',Grid);
 end
 [C h] = contour(P.X,P.Y,P.MinSig,[Lam2 Lam2]);
-LPR2 = -min(C(1,:));%/Lam_n;
+xC = C2xyz(C);
+xVals = [];
+for i = 1:length(xC)
+    xVals = [xVals min(xC{i})];
+end
+LPR2 = -min(xVals);
 close all
 LPR = max([LPR1 LPR2]);
