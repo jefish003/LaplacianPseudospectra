@@ -19,7 +19,7 @@ function [P] = LapPseudo(L,Grid)
 [V T] = schur(L,'complex');
 %T = real(T);
 DT = diag(T);
-F = find(DT~=min(DT));
+F = find(abs(DT)>=1e-15);
 L0 = T(F,F);
 if ~exist('Grid','var')
     P = Pseudospectra(L0);
